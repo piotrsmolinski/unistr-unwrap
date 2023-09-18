@@ -1,0 +1,24 @@
+configuration:
+  status: warn
+
+  appenders:
+    console:
+      name: console
+      patternLayout:
+        Pattern: "[%-5level] %d{HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+
+  loggers:
+    logger:
+      - name: org.apache.kafka
+        level: warn
+      - name: org.apache.kafka.clients.admin.AdminClientConfig
+        level: error
+      - name: org.apache.kafka.clients.producer.ProducerConfig
+        level: error
+      - name: org.apache.kafka.clients.consumer.ConsumerConfig
+        level: error
+
+    root:
+      level: info
+      appenderRef:
+        ref: console
